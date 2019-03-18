@@ -1,108 +1,185 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+This is a temporary script file.
+"""
+
 import tensorflow as tf
 
-# NN的基本流程
+# 常量使用和Session
 def demo01():
-    # 1. 图的定义阶段
-
-    # 定义了两个常量op
-    m1 = tf.constant([3,5])
-    m2 = tf.constant([2,4])
-
-    # 定义了加法op
-    result = tf.add(m1,m2)
-
-    # Tensor("Add:0", shape=(2,), dtype=int32)
-    # print(result)
-
-    # 2. 图的执行
+    # 创建两个常量op 一行两列 两行一列
+    m1 = tf.constant([[3,3]])
+    m2 = tf.constant([[2],[3]])
+    
+    # 矩阵乘法的op
+    product = tf.matmul(m1,m2)
+    
+    
+    # Tensor("MatMul:0", shape=(1, 1), dtype=int32)
+    # print(product)
+    
     with tf.Session() as sess:
-        res = sess.run(result)
-
-    print(res)
-
-# 常量
+        result = sess.run(product)
+        # [[15]]
+        print(result)
+      
+# 变量要进行初始化
 def demo02():
-    # name 是tensor的唯一标识，冒号后边的是第几个输出结果，shape是维度，type是类型
-    # 要保证参与运算的张量类型相一致
-    a = tf.constant([[2.0,3.0]],name="a")
-    b = tf.constant([[1.0],[4.0]],name="b")
-    result = tf.matmul(a,b,name="mul")
+    x = tf.Variable([1,2])
+    a = tf.constant([3,3])
+    
+    # 定义两个op
+    sub = tf.subtract(x,a)
+    add = tf.add(x,sub)
+    
+    # 进行变量初始化
+    init = tf.global_variables_initializer()
+    
+    with tf.Session() as sess:
+        # 执行变量初始化
+        sess.run(init)
+        print(sess.run(sub))
+        print(sess.run(add))
 
-    # Tensor("mul:0", shape=(1, 1), dtype=float32)
-    print(result)
-
-# 变量
 def demo03():
-    a = tf.Variable(3,name="a")
-    b = tf.Variable(4,name="b")
-
-    res = tf.add(a,b)
-    # 有变量的话必须要进行初始化
+    # 创建一个变量
+    state = tf.Variable(0,name="count")
+    
+    # 创建一个op，作用是加1
+    new_value = tf.add(state,1)
+    
+    # tensorflow 赋值，将new_value赋值给state
+    update = tf.assign(state,new_value)
+    
     init = tf.global_variables_initializer()
-
+    
     with tf.Session() as sess:
-        # 必须先执行变量初始化操作
         sess.run(init)
-        print(sess.run(res))
-
-# 占位符和feed方式
+        print(sess.run(state))
+        for i in range(5):
+            sess.run(update)
+            print(sess.run(state))
+            
+# fetch 就是一次性run多个op
 def demo04():
-    a = tf.placeholder(name="a",dtype=tf.float32)
-    b = tf.placeholder(name="b",dtype=tf.float32)
-
-    res = tf.matmul(a,b,name="res")
-
-    # 等执行的时候 把占位符补全，通过feed_dict字典的方式
+    
+    input1 = tf.constant(3.0)
+    input2 = tf.constant(2.0)
+    input3 = tf.constant(5.0)
+    
+    add = tf.add(input2,input3)
+    mul = tf.multiply(add,input1)
+    
     with tf.Session() as sess:
-        result = sess.run(res,feed_dict={a:[[2.,3.]],b:[[1.],[2.]]})
+        result = sess.run([mul,add])
         print(result)
-
-# fetch的用法，即我们利用session的run()方法同时取回多个tensor值
+        
+# feed 定义placeholder,运行时传值
 def demo05():
-    a = tf.constant(5)
-    b = tf.constant(6)
-    c = tf.constant(4)
-
-    add = tf.add(b,c)
-    mul = tf.multiply(a,add)
-
+    # 定义占位符,类型是tf.float32
+    input1 = tf.placeholder(tf.float32)
+    input2 = tf.placeholder(tf.float32)
+    
+    output = tf.multiply(input1,input2)
+        
     with tf.Session() as sess:
-        result = sess.run([add,mul])
+        # feed 的形式以字典的形式传入
+        result = sess.run(output,feed_dict={input1:[7.0],input2:[2.0]})
         print(result)
 
+# 一元线性回归
 def demo06():
+    # 造数据
     import numpy as np
-    # 真正模型
-    x = np.random.rand(100)
-    y = x * 0.1 + 0.2
+    import matplotlib.pyplot as plt
 
-    # 参数初始化
-    k = tf.Variable(1.0,dtype=tf.float32)
-    b = tf.Variable(2.0,dtype=tf.float32)
-    y_ = k * x + b
+    x_data = np.random.rand(100)
+    y_data = x_data * 0.1 + 0.2
 
-    # 定义二次损失函数
-    loss = tf.reduce_mean(tf.square(y - y_))
-
-    # 定义梯度下降优化器 optimizer
-    optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.2)
-
-    # 最小化loss函数
-    train = optimizer.minimize(loss,name="train")
-
+    # 画图
+    plt.figure()
+    plt.scatter(x_data,y_data,color="red",marker="x")
+    
+    # 创建线性模型，并初始化参数
+    b = tf.Variable(0.0)
+    k = tf.Variable(0.0)
+    y = x_data * k + b
+    
+    # 构造二次代价函数
+    loss = tf.reduce_mean(tf.square(y - y_data))
+    
+    # 梯度下降优化loss的optimizer 优化器,学习率是0.2
+    optimizer = tf.train.GradientDescentOptimizer(0.2)
+    
+    # 最小化代价函数
+    train = optimizer.minimize(loss)
+    
     init = tf.global_variables_initializer()
-
+    
     with tf.Session() as sess:
         sess.run(init)
-        sess.run(train)
         for i in range(201):
+            sess.run(train)
             if(i % 20 == 0):
-                print(sess.run(k),sess.run(b),sess.run(loss))
+                k_value,b_value = sess.run([k,b])
+                #  输出k和b
+                print("%d,k=%f,b=%f"%(i,k_value,b_value))
+        # 得到预测值
+        prediction_value = y.eval()
+    
+    # 画图比较一下
+    plt.plot(x_data,prediction_value,color="blue")
+    plt.legend()
+    plt.show()
 
-
-
-def main():
-    demo06()
-
+# 非线性回归
+def demo07():
+    import numpy as np
+    import matplotlib.pyplot as plt
+    # 造数据
+    x_data = np.linspace(-0.5,0.5,200)[:,np.newaxis]
+    noise = np.random.normal(0,0.02,x_data.shape)
+    y_data = np.square(x_data) + noise
+    
+    # 定义两个placeholder
+    x = tf.placeholder(tf.float32,[None,1])
+    y = tf.placeholder(tf.float32,[None,1])
+    
+    # 定义神经网络中间层
+    weight_L1 = tf.Variable(tf.random_normal([1,10]))
+    bias_L1 = tf.Variable(tf.zeros([1,10]))
+    output_L1 = tf.matmul(x,weight_L1) + bias_L1
+    L1 = tf.nn.tanh(output_L1)
+    
+    # 定义神经网络输出层
+    weight_L2 = tf.Variable(tf.random_normal([10,1]))
+    bias_L2 = tf.Variable(tf.zeros([1,1]))
+    output_L2 = tf.matmul(L1,weight_L2) + bias_L2
+    prediction = tf.nn.tanh(output_L2)
+    
+    
+    loss = tf.reduce_mean(tf.square(y - prediction))
+    
+    train = tf.train.GradientDescentOptimizer(0.1).minimize(loss)
+    
+    with tf.Session() as sess:
+        sess.run(tf.global_variables_initializer())
+        
+        for i in range(2000):
+            sess.run(train,feed_dict = {x:x_data,y:y_data})
+            
+        prediction_value = sess.run(prediction,feed_dict={x:x_data})
+        
+        plt.figure()
+        plt.scatter(x_data,y_data,color="blue",marker="o")
+        plt.plot(x_data,prediction_value,color="r")
+        plt.show()
+    
 if __name__ == "__main__":
-    main()
+    demo07()
+    
+    
+    
+    
