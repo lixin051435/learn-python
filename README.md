@@ -535,6 +535,10 @@
 
             vstack((arr1,arr2,)),hstack((arr1,arr2)) 数组的垂直拼接,水平拼接
 
+            np.c_[array1,array2] 表示按列向右扩展
+
+            np.r_[array1,array2] 表示按行向下扩展
+
             genfromtxt(filePath,delimiter) 读取csv文件 返回ndarray
         
         numpy.ndarray运算：
