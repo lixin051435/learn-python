@@ -255,7 +255,9 @@ def demo08():
         plt.show()
 
 # 多元函数回归
-
+# 激活函数很有用：sigmoid tanh ReLU softplus softsign
+# softplus(x) = log(exp(x) + 1)
+# softsign(x) = x / (abs(x) + 1)
 def demo09():
     import matplotlib.pyplot as plt
     import numpy as np
@@ -273,18 +275,18 @@ def demo09():
     weight_L1 = tf.Variable(tf.random_normal([2, 20]))
     bias_L1 = tf.Variable(tf.ones([1, 20]))
     output_L1 = tf.matmul(x, weight_L1) + bias_L1
-    L1 = tf.nn.tanh(output_L1)
+    L1 = tf.nn.softsign(output_L1)
 
     # 输入是1*20  W是20*10
     weight_L2 = tf.Variable(tf.random_normal([20, 10]))
     bias_L2 = tf.Variable(tf.ones([1, 10]))
     output_L2 = tf.matmul(L1, weight_L2) + bias_L2
-    L2 = tf.nn.tanh(output_L2)
+    L2 = tf.nn.softsign(output_L2)
 
     weight_L3 = tf.Variable(tf.random_normal([10, 1]))
     bias_L3 = tf.Variable(tf.ones([1, 1]))
     output_L3 = tf.matmul(L2, weight_L3) + bias_L3
-    prediction = tf.nn.tanh(output_L3)
+    prediction = tf.nn.softsign(output_L3)
 
     loss = tf.reduce_mean(tf.square(y - prediction))
 
