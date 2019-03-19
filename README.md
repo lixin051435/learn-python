@@ -593,4 +593,8 @@
 
 ### demo06 tensorflow 框架
 
+#### demo01.py tensorflow基本用法
 
+        定义图-->执行图
+
+        用tensorflow搭建神经网络模型
