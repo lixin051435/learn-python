@@ -597,8 +597,8 @@
 
 ### demo06 tensorflow 框架
 
-#### demo01.py tensorflow基本用法
+        demo01.py tensorflow的基本使用,并用tensorflow进行回归
 
-        定义图-->执行图
+        demo02.py 初始mnist数据集，调整神经网络层数，参数，激活函数，变量初始化方式
 
-        用tensorflow搭建神经网络模型
+        demo03.py 深入mnist数据集，用DNN识别mnist数据集，并用matplotlib做可视化
