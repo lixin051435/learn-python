@@ -602,3 +602,7 @@
         demo02.py 初始mnist数据集，调整神经网络层数，参数，激活函数，变量初始化方式
 
         demo03.py 深入mnist数据集，用DNN识别mnist数据集，并用matplotlib做可视化
+
+        demo04.py tensorflow保存模型和加载模型
+
+        demo05.py mnist模型加载并测试
