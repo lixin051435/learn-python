@@ -606,3 +606,6 @@
         demo04.py tensorflow保存模型和加载模型
 
         demo05.py mnist模型加载并测试
+
+        demo06.py 加入了dropout层防止过拟合，使用交叉熵函数作为loss函数
+
