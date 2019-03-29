@@ -181,4 +181,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    predictByDNN2()
+    createImage(10)

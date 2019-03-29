@@ -595,7 +595,7 @@
 
             Panel ：三维的数组，可以理解为DataFrame的容器。
 
-### demo06 tensorflow 框架
+### demo06 tensorflow和DNN
 
         demo01.py tensorflow的基本使用,并用tensorflow进行回归
 
@@ -609,3 +609,6 @@
 
         demo06.py 加入了dropout层防止过拟合，使用交叉熵函数作为loss函数
 
+### demo07 tensorflow和CNN
+
+        demo01.py tensorflow 用CNN实现手写数字模型
