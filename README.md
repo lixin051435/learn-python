@@ -612,3 +612,5 @@
 ### demo07 tensorflow和CNN
 
         demo01.py tensorflow 用CNN实现手写数字模型
+
+        demo02.py tensorflow 读取CNN训练好的模型测试mnist数据集和自己的数据集
