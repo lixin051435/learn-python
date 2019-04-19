@@ -616,3 +616,9 @@
         demo02.py tensorflow 读取CNN训练好的模型测试mnist数据集和自己的数据集
 
 ### tf_cifar10 tensorflow和cifar-10
+
+    cifar10.py, cifar10_input.py, cifar10_train.py, cifar10_eval.py cifar10_input_test.py 是从https://github.com/tensorflow/models.git下载的
+
+    test.py 用于模拟tensorflow是如何读取图片的（文件名队列-->文件队列-->运行）
+
+    cifar10_download.py 用于下载并解压cifar10数据集的

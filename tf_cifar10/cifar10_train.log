@@ -1,0 +1,126 @@
+WARNING:tensorflow:From d:\lixin\git_projects\learn-python\tf_cifar10\cifar10_input.py:158: string_input_producer (from tensorflow.python.training.input) is deprecated and will be removed in a future version.
+Instructions for updating:
+Queue-based input pipelines have been replaced by `tf.data`. Use `tf.data.Dataset.from_tensor_slices(string_tensor).shuffle(tf.shape(input_tensor, out_type=tf.int64)[0]).repeat(num_epochs)`. If `shuffle=False`, omit the `.shuffle(...)`.
+WARNING:tensorflow:From D:\lixin\Anaconda4.2\lib\site-packages\tensorflow\python\training\input.py:276: input_producer (from tensorflow.python.training.input) is deprecated and will be removed in a future version.
+Instructions for updating:
+Queue-based input pipelines have been replaced by `tf.data`. Use `tf.data.Dataset.from_tensor_slices(input_tensor).shuffle(tf.shape(input_tensor, out_type=tf.int64)[0]).repeat(num_epochs)`. If `shuffle=False`, omit the `.shuffle(...)`.
+WARNING:tensorflow:From D:\lixin\Anaconda4.2\lib\site-packages\tensorflow\python\training\input.py:188: limit_epochs (from tensorflow.python.training.input) is deprecated and will be removed in a future version.
+Instructions for updating:
+Queue-based input pipelines have been replaced by `tf.data`. Use `tf.data.Dataset.from_tensors(tensor).repeat(num_epochs)`.
+WARNING:tensorflow:From D:\lixin\Anaconda4.2\lib\site-packages\tensorflow\python\training\input.py:197: QueueRunner.__init__ (from tensorflow.python.training.queue_runner_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+To construct input pipelines, use the `tf.data` module.
+WARNING:tensorflow:From D:\lixin\Anaconda4.2\lib\site-packages\tensorflow\python\training\input.py:197: add_queue_runner (from tensorflow.python.training.queue_runner_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+To construct input pipelines, use the `tf.data` module.
+WARNING:tensorflow:From d:\lixin\git_projects\learn-python\tf_cifar10\cifar10_input.py:79: FixedLengthRecordReader.__init__ (from tensorflow.python.ops.io_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Queue-based input pipelines have been replaced by `tf.data`. Use `tf.data.FixedLengthRecordDataset`.
+Filling queue with 20000 CIFAR images before starting to train. This will take a few minutes.
+WARNING:tensorflow:From d:\lixin\git_projects\learn-python\tf_cifar10\cifar10_input.py:126: shuffle_batch (from tensorflow.python.training.input) is deprecated and will be removed in a future version.
+Instructions for updating:
+Queue-based input pipelines have been replaced by `tf.data`. Use `tf.data.Dataset.shuffle(min_after_dequeue).batch(batch_size)`.
+2019-04-19 13:26:34.947846: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+WARNING:tensorflow:From D:\lixin\Anaconda4.2\lib\site-packages\tensorflow\python\training\monitored_session.py:804: start_queue_runners (from tensorflow.python.training.queue_runner_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+To construct input pipelines, use the `tf.data` module.
+2019-04-19 13:26:36.291474: step 0, loss = 4.67 (903.0 examples/sec; 0.142 sec/batch)
+2019-04-19 13:26:38.657387: step 10, loss = 4.63 (541.0 examples/sec; 0.237 sec/batch)
+2019-04-19 13:26:41.012719: step 20, loss = 4.49 (543.4 examples/sec; 0.236 sec/batch)
+2019-04-19 13:26:43.265741: step 30, loss = 4.44 (568.1 examples/sec; 0.225 sec/batch)
+2019-04-19 13:26:45.564822: step 40, loss = 4.50 (556.7 examples/sec; 0.230 sec/batch)
+2019-04-19 13:26:47.874337: step 50, loss = 4.32 (554.2 examples/sec; 0.231 sec/batch)
+2019-04-19 13:26:50.149488: step 60, loss = 4.28 (562.6 examples/sec; 0.228 sec/batch)
+2019-04-19 13:26:52.490253: step 70, loss = 4.35 (546.8 examples/sec; 0.234 sec/batch)
+2019-04-19 13:26:54.886378: step 80, loss = 4.13 (534.2 examples/sec; 0.240 sec/batch)
+2019-04-19 13:26:57.186860: step 90, loss = 4.08 (556.4 examples/sec; 0.230 sec/batch)
+2019-04-19 13:26:59.567941: step 100, loss = 4.10 (537.6 examples/sec; 0.238 sec/batch)
+2019-04-19 13:27:02.015432: step 110, loss = 3.99 (523.0 examples/sec; 0.245 sec/batch)
+2019-04-19 13:27:04.429269: step 120, loss = 4.04 (530.3 examples/sec; 0.241 sec/batch)
+2019-04-19 13:27:06.907186: step 130, loss = 4.05 (516.6 examples/sec; 0.248 sec/batch)
+2019-04-19 13:27:09.419039: step 140, loss = 3.92 (509.6 examples/sec; 0.251 sec/batch)
+2019-04-19 13:27:11.852566: step 150, loss = 3.94 (526.0 examples/sec; 0.243 sec/batch)
+2019-04-19 13:27:14.304576: step 160, loss = 4.36 (522.0 examples/sec; 0.245 sec/batch)
+2019-04-19 13:27:16.806124: step 170, loss = 3.88 (511.7 examples/sec; 0.250 sec/batch)
+2019-04-19 13:27:19.253320: step 180, loss = 3.92 (523.0 examples/sec; 0.245 sec/batch)
+2019-04-19 13:27:21.649978: step 190, loss = 3.91 (534.1 examples/sec; 0.240 sec/batch)
+2019-04-19 13:27:24.159440: step 200, loss = 4.00 (510.3 examples/sec; 0.251 sec/batch)
+2019-04-19 13:27:26.686120: step 210, loss = 3.87 (506.4 examples/sec; 0.253 sec/batch)
+2019-04-19 13:27:29.113898: step 220, loss = 4.07 (527.2 examples/sec; 0.243 sec/batch)
+2019-04-19 13:27:31.557389: step 230, loss = 3.79 (523.8 examples/sec; 0.244 sec/batch)
+2019-04-19 13:27:34.003829: step 240, loss = 3.94 (523.2 examples/sec; 0.245 sec/batch)
+2019-04-19 13:27:36.529102: step 250, loss = 3.68 (506.9 examples/sec; 0.253 sec/batch)
+2019-04-19 13:27:39.014859: step 260, loss = 3.61 (514.9 examples/sec; 0.249 sec/batch)
+2019-04-19 13:27:41.555147: step 270, loss = 3.45 (504.1 examples/sec; 0.254 sec/batch)
+2019-04-19 13:27:44.079288: step 280, loss = 3.39 (506.9 examples/sec; 0.253 sec/batch)
+2019-04-19 13:27:46.560592: step 290, loss = 3.74 (515.9 examples/sec; 0.248 sec/batch)
+2019-04-19 13:27:49.142984: step 300, loss = 3.47 (495.7 examples/sec; 0.258 sec/batch)
+2019-04-19 13:27:51.679714: step 310, loss = 3.54 (504.6 examples/sec; 0.254 sec/batch)
+2019-04-19 13:27:54.196317: step 320, loss = 3.67 (508.6 examples/sec; 0.252 sec/batch)
+2019-04-19 13:27:56.717623: step 330, loss = 3.35 (507.7 examples/sec; 0.252 sec/batch)
+2019-04-19 13:27:59.262581: step 340, loss = 3.44 (503.0 examples/sec; 0.254 sec/batch)
+2019-04-19 13:28:01.788143: step 350, loss = 3.47 (506.8 examples/sec; 0.253 sec/batch)
+2019-04-19 13:28:04.313941: step 360, loss = 3.46 (506.8 examples/sec; 0.253 sec/batch)
+2019-04-19 13:28:06.812355: step 370, loss = 3.39 (512.3 examples/sec; 0.250 sec/batch)
+2019-04-19 13:28:09.332221: step 380, loss = 3.36 (508.0 examples/sec; 0.252 sec/batch)
+2019-04-19 13:28:11.856872: step 390, loss = 3.23 (507.0 examples/sec; 0.252 sec/batch)
+2019-04-19 13:28:14.393625: step 400, loss = 3.47 (504.6 examples/sec; 0.254 sec/batch)
+2019-04-19 13:28:16.921193: step 410, loss = 3.29 (506.4 examples/sec; 0.253 sec/batch)
+2019-04-19 13:28:19.470368: step 420, loss = 3.55 (502.3 examples/sec; 0.255 sec/batch)
+2019-04-19 13:28:22.037096: step 430, loss = 3.31 (498.5 examples/sec; 0.257 sec/batch)
+2019-04-19 13:28:24.551517: step 440, loss = 3.33 (509.1 examples/sec; 0.251 sec/batch)
+2019-04-19 13:28:27.079033: step 450, loss = 3.19 (506.4 examples/sec; 0.253 sec/batch)
+2019-04-19 13:28:29.658865: step 460, loss = 3.24 (496.2 examples/sec; 0.258 sec/batch)
+2019-04-19 13:28:32.136745: step 470, loss = 3.26 (516.6 examples/sec; 0.248 sec/batch)
+2019-04-19 13:28:34.661391: step 480, loss = 3.29 (507.0 examples/sec; 0.252 sec/batch)
+2019-04-19 13:28:37.185203: step 490, loss = 3.10 (507.2 examples/sec; 0.252 sec/batch)
+2019-04-19 13:28:39.801291: step 500, loss = 3.27 (489.3 examples/sec; 0.262 sec/batch)
+2019-04-19 13:28:42.298129: step 510, loss = 3.27 (512.6 examples/sec; 0.250 sec/batch)
+2019-04-19 13:28:44.835403: step 520, loss = 3.15 (504.7 examples/sec; 0.254 sec/batch)
+2019-04-19 13:28:47.356700: step 530, loss = 3.07 (507.5 examples/sec; 0.252 sec/batch)
+2019-04-19 13:28:49.864410: step 540, loss = 2.91 (510.4 examples/sec; 0.251 sec/batch)
+2019-04-19 13:28:52.367307: step 550, loss = 3.49 (511.4 examples/sec; 0.250 sec/batch)
+2019-04-19 13:28:54.902805: step 560, loss = 3.00 (504.8 examples/sec; 0.254 sec/batch)
+2019-04-19 13:28:57.418183: step 570, loss = 3.11 (508.9 examples/sec; 0.252 sec/batch)
+2019-04-19 13:28:59.938691: step 580, loss = 3.00 (507.8 examples/sec; 0.252 sec/batch)
+2019-04-19 13:29:02.514861: step 590, loss = 3.21 (496.9 examples/sec; 0.258 sec/batch)
+2019-04-19 13:29:05.056901: step 600, loss = 2.88 (503.5 examples/sec; 0.254 sec/batch)
+2019-04-19 13:29:07.584184: step 610, loss = 2.91 (506.5 examples/sec; 0.253 sec/batch)
+2019-04-19 13:29:10.062125: step 620, loss = 3.06 (516.6 examples/sec; 0.248 sec/batch)
+2019-04-19 13:29:12.603355: step 630, loss = 3.25 (503.7 examples/sec; 0.254 sec/batch)
+2019-04-19 13:29:15.120092: step 640, loss = 2.93 (508.6 examples/sec; 0.252 sec/batch)
+2019-04-19 13:29:17.596641: step 650, loss = 2.89 (516.8 examples/sec; 0.248 sec/batch)
+2019-04-19 13:29:20.105676: step 660, loss = 2.80 (510.2 examples/sec; 0.251 sec/batch)
+2019-04-19 13:29:22.626617: step 670, loss = 2.89 (507.7 examples/sec; 0.252 sec/batch)
+2019-04-19 13:29:25.187867: step 680, loss = 2.96 (499.8 examples/sec; 0.256 sec/batch)
+2019-04-19 13:29:27.707157: step 690, loss = 2.85 (508.1 examples/sec; 0.252 sec/batch)
+2019-04-19 13:29:30.250904: step 700, loss = 2.93 (503.2 examples/sec; 0.254 sec/batch)
+2019-04-19 13:29:32.840055: step 710, loss = 2.95 (494.4 examples/sec; 0.259 sec/batch)
+2019-04-19 13:29:35.350384: step 720, loss = 2.73 (509.9 examples/sec; 0.251 sec/batch)
+2019-04-19 13:29:37.874375: step 730, loss = 2.89 (507.1 examples/sec; 0.252 sec/batch)
+2019-04-19 13:29:40.410682: step 740, loss = 2.93 (504.7 examples/sec; 0.254 sec/batch)
+2019-04-19 13:29:42.965361: step 750, loss = 2.83 (501.0 examples/sec; 0.255 sec/batch)
+2019-04-19 13:29:45.484129: step 760, loss = 2.91 (508.2 examples/sec; 0.252 sec/batch)
+2019-04-19 13:29:48.010388: step 770, loss = 3.03 (506.7 examples/sec; 0.253 sec/batch)
+2019-04-19 13:29:50.538670: step 780, loss = 2.72 (506.3 examples/sec; 0.253 sec/batch)
+2019-04-19 13:29:53.051014: step 790, loss = 2.67 (509.5 examples/sec; 0.251 sec/batch)
+2019-04-19 13:29:55.575790: step 800, loss = 2.66 (507.0 examples/sec; 0.252 sec/batch)
+2019-04-19 13:29:58.104745: step 810, loss = 2.75 (506.1 examples/sec; 0.253 sec/batch)
+2019-04-19 13:30:00.660035: step 820, loss = 2.74 (500.9 examples/sec; 0.256 sec/batch)
+2019-04-19 13:30:03.154907: step 830, loss = 2.97 (513.1 examples/sec; 0.249 sec/batch)
+2019-04-19 13:30:05.749629: step 840, loss = 2.66 (493.3 examples/sec; 0.259 sec/batch)
+2019-04-19 13:30:08.272718: step 850, loss = 2.58 (507.3 examples/sec; 0.252 sec/batch)
+2019-04-19 13:30:10.863611: step 860, loss = 2.73 (494.0 examples/sec; 0.259 sec/batch)
+2019-04-19 13:30:13.384593: step 870, loss = 2.41 (507.7 examples/sec; 0.252 sec/batch)
+2019-04-19 13:30:15.894667: step 880, loss = 2.50 (509.9 examples/sec; 0.251 sec/batch)
+2019-04-19 13:30:18.406525: step 890, loss = 2.68 (509.6 examples/sec; 0.251 sec/batch)
+2019-04-19 13:30:20.955752: step 900, loss = 2.68 (502.1 examples/sec; 0.255 sec/batch)
+2019-04-19 13:30:23.458099: step 910, loss = 2.62 (511.5 examples/sec; 0.250 sec/batch)
+2019-04-19 13:30:26.002291: step 920, loss = 2.54 (503.1 examples/sec; 0.254 sec/batch)
+2019-04-19 13:30:28.532154: step 930, loss = 2.62 (506.0 examples/sec; 0.253 sec/batch)
+2019-04-19 13:30:31.042567: step 940, loss = 2.52 (509.9 examples/sec; 0.251 sec/batch)
+2019-04-19 13:30:33.600022: step 950, loss = 2.53 (500.5 examples/sec; 0.256 sec/batch)
+2019-04-19 13:30:36.159707: step 960, loss = 2.36 (500.1 examples/sec; 0.256 sec/batch)
+2019-04-19 13:30:38.689752: step 970, loss = 2.39 (505.9 examples/sec; 0.253 sec/batch)
+2019-04-19 13:30:41.190040: step 980, loss = 2.41 (511.9 examples/sec; 0.250 sec/batch)
+2019-04-19 13:30:43.756232: step 990, loss = 2.53 (498.8 examples/sec; 0.257 sec/batch)
