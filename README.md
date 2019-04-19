@@ -622,3 +622,7 @@
     test.py 用于模拟tensorflow是如何读取图片的（文件名队列-->文件队列-->运行）
 
     cifar10_download.py 用于下载并解压cifar10数据集的
+
+### tf_own_data 用tensorflow制作自己的图片数据
+
+    resize.py 测试PIL改变图片尺寸并保存新图像
