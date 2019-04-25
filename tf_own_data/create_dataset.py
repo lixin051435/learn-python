@@ -24,7 +24,6 @@ def create_record(root_dir, output_name="train.tfrecords"):
         for image_name in os.listdir(image_dir_path):
             image_path = image_dir_path + "/" + image_name
             img_raw = ImageResizeTool.image_to_byte(image_path, 128, 128)
-            print(index, img_raw)
 
             example = tf.train.Example(
                 features=tf.train.Features(feature={
@@ -45,7 +44,7 @@ def read_and_decode(filename):
     return:
         image,label
     '''
-    # 创建文件队列,不限读取的数量
+    # 创建文件名队列,不限读取的数量
     filename_queue = tf.train.string_input_producer([filename])
     # create a reader from file queue
     reader = tf.TFRecordReader()
@@ -70,4 +69,8 @@ def read_and_decode(filename):
     # 在流中抛出label张量
     label = tf.cast(label, tf.int32)
     return img, label
+
+if __name__ == "__main__":
+    with tf.Session() as sess:
+        print(sess.run(read_and_decode("train.tfrecords")))
 
