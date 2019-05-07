@@ -4,7 +4,7 @@ import glob
 import pandas as pd
 import xml.etree.ElementTree as ET
 
-path = "d:/lixin/data/test"
+path = "D:/lixin/knife_detection/annotaions/train"
 
 
 def xml_to_csv(path, csv_file_path="file.csv"):
@@ -41,7 +41,7 @@ def xml_to_csv(path, csv_file_path="file.csv"):
 
 
 def main():
-    xml_to_csv(path)
+    xml_to_csv(path,path+"/test.csv")
 
 
 if __name__ == "__main__":
